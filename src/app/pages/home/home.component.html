@@ -1,0 +1,13 @@
+<section class="container mt-3">
+    <div class="row g-3">
+
+        <article class="col-12 col-md-6 col lg-4" *ngFor="let user of objectKeys(arrUser)">
+            <app-user-card [miUser] = "user">
+
+            </app-user-card>
+
+        </article>
+
+    </div>
+
+</section>

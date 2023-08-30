@@ -1,0 +1,10 @@
+<section class="container">
+    <h4>Observables</h4>
+    <h1>{{oneUser?.first_name}}</h1>
+    <h1>{{oneUser?.last_name}}</h1>
+    <p><strong>Nombre Usuario:</strong>  {{oneUser?.username}}</p>
+    <p><strong>Email:</strong>  {{oneUser?.email}}</p>
+</section>
+<button class="btn btn-danger" (click)="deleteUser(oneUser?._id)">Eliminar</button>
+<a class="btn btn-warning" [routerLink]="['/updateuser', oneUser?._id]">Actualizar</a>
+<a class="btn btn-info" [routerLink]="['/home']">Volver al listado</a>

@@ -1,0 +1,31 @@
+<section class="container mt-3">
+    <h3>NUEVO USUARIO</h3>
+    <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+        <div>
+            <label for="first_name">Nombre Usuario</label>
+            <input type="text" placeholder="Introduzca nombre de usuario" class="form-control" formControlName="first_name">
+        </div>
+        <br>
+
+        <div>
+            <label for="last_name">Apellido Usuario</label>
+            <input type="text" placeholder="Introduzca apellido de usuario" class="form-control" formControlName="last_name">
+        </div>
+        <br>
+
+        <div>
+            <label for="email"> Email Usuario</label>
+            <input type="text" placeholder="Introduzca email de usuario" class="form-control" formControlName="email">
+        </div>
+        <br>
+
+        <div>
+            <label for="image">Imagen Usuario</label>
+            <input type="text" placeholder="Introduzca url de foto usuario" class="form-control" formControlName="image">
+        </div>
+        <br>
+
+        <input type="submit" class="btn btn-danger" value="Guardar">
+    </form>
+
+</section>

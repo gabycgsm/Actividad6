@@ -1,0 +1,5 @@
+<div class="card shadow">
+    <h3 class="card-title">{{miUser?._id}}</h3>
+    <p>{{miUser?.first_name}}</p>
+    <a class="btn btn-danger" [routerLink]="['/viewuser', miUser?._id]">Ver detalle</a>
+</div>
