@@ -13,9 +13,9 @@ export class UsersService {
 
   constructor() { }
 
-  getAll(): Promise<User[]> {
+  getAll(page: number): Promise<any> {
 
-    return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl));
+    return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}?page=${page}`));
 
   }
 
@@ -30,9 +30,10 @@ export class UsersService {
 
   }
 
-  getByIdPromise(id: string): Promise<User> {
+  getByIdPromise(id: string): Promise<any> {
     return lastValueFrom(this.httpClient.get<User>(`${this.baseUrl}${id}`));
   }
+
 
   delete(id: string): Promise<any> {
     return lastValueFrom(this.httpClient.delete<any>(`${this.baseUrl}${id}`));

@@ -1,5 +1,9 @@
-<div class="card shadow">
-    <h3 class="card-title">{{miUser?._id}}</h3>
-    <p>{{miUser?.first_name}}</p>
+
+<div class="card" style="width: 18rem;">
+    <img [src]="miUser.image">
+    <div class="card-body">
+        <p>{{miUser?.first_name}} {{miUser?.last_name}}</p>
+    </div>
     <a class="btn btn-danger" [routerLink]="['/viewuser', miUser?._id]">Ver detalle</a>
-</div>
+    
+  </div>

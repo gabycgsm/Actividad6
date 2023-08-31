@@ -10,19 +10,23 @@ import { UsersService } from 'src/app/services/users.service';
 export class HomeComponent {
   arrUser: User[] = [];
 
+  totalPages: number = 0;
+
 
   usersService = inject(UsersService);
 
-  ngOnInit(){
-    this.usersService.getAll()
-    .then( (response) => {      
+  /*ngOnInit(){
+    this.usersService.getAll(1)
+    .then( (response) => {    
+      console.log('response');
+      console.log(response)  
       this.arrUser = response;               
     })
     .catch( (error) => {
       console.log(error);
     })
 
-  }
+  }*/
 
   objectKeys(objeto: any) {
     const keys = Object.keys(objeto.results);
@@ -32,12 +36,22 @@ export class HomeComponent {
     return keys;
   }
 
-  /*async ngOnInit(): Promise<void> {
+  async ngOnInit(): Promise<void> {
     try {
-      this.arrUser = await this.usersService.getAll();
+      let response = await this.usersService.getAll(1);
+      this.totalPages = response.total_pages;            
+      
+      this.arrUser = response.results;
     } catch (error) {
       console.log(error)
     }
+
+  }
+
+  /*ngOnInit(){
+    this.usersService.getAllUser().subscribe( (data) => {
+      this.arrUser = data;
+    })
 
   }*/
 
