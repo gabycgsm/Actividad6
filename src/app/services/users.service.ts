@@ -40,7 +40,7 @@ export class UsersService {
 
   }
 
-  insert(formValue: any): Promise<User>{
+  insert(formValue: User): Promise<User>{
     return lastValueFrom(this.httpClient.post<User>(this.baseUrl, formValue));
   }
 

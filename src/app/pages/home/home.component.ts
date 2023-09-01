@@ -11,6 +11,7 @@ export class HomeComponent {
   arrUser: User[] = [];
 
   totalPages: number = 0;
+  pages: number=0;
 
 
   usersService = inject(UsersService);
@@ -38,7 +39,7 @@ export class HomeComponent {
 
   async ngOnInit(): Promise<void> {
     try {
-      let response = await this.usersService.getAll(1);
+      let response = await this.usersService.getAll(2);
       this.totalPages = response.total_pages;            
       
       this.arrUser = response.results;

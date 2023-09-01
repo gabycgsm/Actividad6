@@ -1,31 +1,52 @@
 <section class="container mt-3">
-    <h3>NUEVO USUARIO</h3>
+    <h3>{{nombreFormulario}}</h3>
     <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+        
         <div>
-            <label for="first_name">Nombre Usuario</label>
-            <input type="text" placeholder="Introduzca nombre de usuario" class="form-control" formControlName="first_name">
+            <label for="first_name">Nombre</label>
+            <input type="text" placeholder="Introduzca nombre de usuario" class="form-control" formControlName="first_name" id="first_name">
+            <p class="error" *ngIf="checkControl('first_name','required')">Campo requerido</p>
+        </div>        
+        <br>
+
+        <div>
+            <label for="last_name">Apellido</label>
+            <input type="text" placeholder="Introduzca apellido de usuario" class="form-control" formControlName="last_name" id="last_name">
+            <p class="error" *ngIf="checkControl('last_name','required')">Campo requerido</p>
         </div>
         <br>
 
         <div>
-            <label for="last_name">Apellido Usuario</label>
-            <input type="text" placeholder="Introduzca apellido de usuario" class="form-control" formControlName="last_name">
+            <label for="email"> Email</label>
+            <input type="text" placeholder="Introduzca email de usuario" class="form-control" formControlName="email" id="email">
+            <p class="error" *ngIf="checkControl('email','required')">Campo requerido</p>
+
+            <p class="error" *ngIf="checkControl('email', 'pattern')">El email tiene formato incorrecto</p>
         </div>
         <br>
 
         <div>
-            <label for="email"> Email Usuario</label>
-            <input type="text" placeholder="Introduzca email de usuario" class="form-control" formControlName="email">
+            <label for="username"> Nombre Usuario</label>
+            <input type="text" placeholder="Introduzca username de usuario" class="form-control" formControlName="username" id="username">
+            <p class="error" *ngIf="checkControl('username','required')">Campo requerido</p>
         </div>
         <br>
 
         <div>
-            <label for="image">Imagen Usuario</label>
-            <input type="text" placeholder="Introduzca url de foto usuario" class="form-control" formControlName="image">
+            <label for="password"> Password</label>
+            <input type="text" placeholder="Introduzca password de usuario" class="form-control" formControlName="password" id="password">
+            <p class="error" *ngIf="checkControl('password','required')">Campo requerido</p>
         </div>
         <br>
 
-        <input type="submit" class="btn btn-danger" value="Guardar">
+        <div>
+            <label for="image">Imagen</label>
+            <input type="text" placeholder="Introduzca url de foto usuario" class="form-control" formControlName="image" id="image">
+            <p class="error" *ngIf="checkControl('image','required')">Campo requerido</p>
+        </div>
+        <br>
+
+        <input type="submit" class="btn btn-danger" [value]="nombreBoton" [disabled]="!userForm.valid">
     </form>
 
 </section>

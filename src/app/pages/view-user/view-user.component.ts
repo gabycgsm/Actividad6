@@ -16,36 +16,45 @@ export class ViewUserComponent {
   oneUser!: User | any;
 
   //observable
-  /*ngOnInit() : void{
-    this.activedRoute.params.subscribe( (params: any) => {
+  ngOnInit(): void {
+    this.activedRoute.params.subscribe((params: any) => {
       let id = String(params.iduser);
-      
-      this.oneUser = this.usersService.getById(id).subscribe( (response) => {
+
+      this.usersService.getById(id).subscribe((response) => {
         this.oneUser = response;
+        console.log(this.oneUser)
       });
 
 
     })
-  }*/
+  }
 
   //promesa
-  ngOnInit(): void{
+  /*ngOnInit(): void{
 
     this.activedRoute.params.subscribe((params: any) => {
       let id: string = String(params.iduser)
       this.oneUser = this.usersService.getByIdPromise(id);
     })    
-  }
+  }*/
 
-  async deleteUser(id: string) : Promise<void>{
-    alert('Deseas borrar el usuario');
+  async deleteUser(id: string): Promise<void> {
+
     let response = await this.usersService.delete(id);
-    if(response){
-      alert('El usuario se borro correctamente');
-      this.router.navigate(['/home'])
+
+    if (confirm("Deseas borrar el usuario ? " + response.first_name + " " + response.last_name)) {
+            
+      if (response) {
+        alert('El usuario se borro correctamente');
+        this.router.navigate(['/home'])
+      }
     }
-    
+
 
   }
+
 
 }
+
+
+
