@@ -1,6 +1,6 @@
 # DeberActividad6
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+Proyecto en Angular completo con un sistema de componentes y rutas funcional que se conecta a un servicio de BBDD a través de una api externa.
 
 ## Development server
 
