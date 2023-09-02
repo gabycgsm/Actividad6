@@ -13,9 +13,7 @@ export class FormComponent {
   userForm: FormGroup;
   usersService = inject(UsersService);
   router = inject(Router);
-  activedRoute = inject(ActivatedRoute);
-  nombreFormulario: string = 'NUEVO USUARIO'
-  type: string = 'Guardar';
+  activedRoute = inject(ActivatedRoute);    
 
   constructor() {
 
@@ -30,9 +28,7 @@ export class FormComponent {
     }, [])
   }
 
-  ngOnInit(): void {
-    this.nombreFormulario = 'ACTUALIZAR FORMULARIO'
-    this.type = 'Actualizar'
+  ngOnInit(): void {        
     this.activedRoute.params.subscribe(async (params: any) => {
       let id: string = String(params.iduser);
 
@@ -78,8 +74,7 @@ export class FormComponent {
 
     } else {
       //insertar      
-      let response = await this.usersService.insert(this.userForm.value);
-      console.log(response)
+      let response = await this.usersService.insert(this.userForm.value);      
 
       if (response.id) {
         alert('Usuario insertado correctamente');

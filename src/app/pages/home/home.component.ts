@@ -18,9 +18,7 @@ export class HomeComponent {
 
   /*ngOnInit(){
     this.usersService.getAll(1)
-    .then( (response) => {    
-      console.log('response');
-      console.log(response)  
+    .then( (response) => {         
       this.arrUser = response;               
     })
     .catch( (error) => {
@@ -28,14 +26,6 @@ export class HomeComponent {
     })
 
   }*/
-
-  objectKeys(objeto: any) {
-    const keys = Object.keys(objeto.results);
-    console.log('object key');
-    console.log(objeto.results);
-    console.log(keys); // echa un vistazo por consola para que veas lo que hace "Object.keys"
-    return keys;
-  }
 
   async ngOnInit(): Promise<void> {
     this.verDatosPaginados(this.currentPage);
@@ -53,13 +43,5 @@ export class HomeComponent {
     }
 
   }
-
-  /*ngOnInit(){
-    this.usersService.getAllUser().subscribe( (data) => {
-      this.arrUser = data;
-    })
-
-  }*/
-
 
 }

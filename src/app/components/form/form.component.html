@@ -1,5 +1,5 @@
 <section class="container mt-3">
-    <h3>{{nombreFormulario}}</h3>
+    <h3>USUARIO</h3>
     <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
         
         <div>
@@ -46,7 +46,7 @@
         </div>
         <br>
 
-        <input type="submit" class="btn btn-danger" [value]="type" [disabled]="!userForm.valid">
+        <input type="submit" class="btn btn-danger" value="Guardar" [disabled]="!userForm.valid">
     </form>
 
 </section>

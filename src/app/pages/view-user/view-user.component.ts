@@ -21,8 +21,7 @@ export class ViewUserComponent {
       let id = String(params.iduser);
 
       this.usersService.getById(id).subscribe((response) => {
-        this.oneUser = response;
-        console.log(this.oneUser)
+        this.oneUser = response;        
       });
 
 
